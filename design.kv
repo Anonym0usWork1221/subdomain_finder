@@ -1,0 +1,175 @@
+WindowManager:
+	DomainWindow:
+
+
+<DomainWindow>
+	do_default_tab : False
+	tab_pos: "left_mid"
+
+	#complete host file
+	TabbedPanelItem
+		text : "Host File"
+		spacing : 10
+		background_color : (1,0,0,1)
+		BoxLayout:
+			orientation : "vertical"
+			size : root.width, root.height
+			Image:
+				source: "images/anonymous.jpg"
+				keep_ratio : False
+				allow_stretch : True
+
+		BoxLayout:
+			orientation : "vertical"
+			#size : root.width,root.height
+
+			padding : 10
+			spacing: 20
+
+			GridLayout:
+				cols: 1
+				Label:
+					text: "Host Maker -->> Version: 1.0"
+					font_size: 28
+					background_color: (186/255, 168/255, 6/255, 1)
+					canvas.before:
+						Color:
+							rgba: self.background_color
+						Rectangle:
+							pos: self.pos
+							size: self.size
+					bold: True
+					italic: True
+
+
+
+			GridLayout:
+				cols: 3
+
+				Label:
+					id: H_domain
+					text : "Enter your domains: "
+					font_size : 29
+					background_color: (44/255, 161/255, 8/255, 1)
+					canvas.before:
+						Color:
+							rgba: self.background_color
+						Rectangle:
+							pos: self.pos
+							size: self.size
+					
+
+				TextInput:
+					multiline : False
+					id: H_input
+					background_color: (115/255, 95/255, 70/255, 1)
+
+				Button:
+					text : "Add"
+					on_release : root.add(H_input.text)
+					size_hint : (.6, .2)
+					background_color: (1, 0, 0, 1)
+
+			Label:
+				text: "Enter the Host file name"
+				font_size: 30
+				background_color: (112/255, 12/255, 49/255, 1)
+				canvas.before:
+					Color:
+						rgba: self.background_color
+					Rectangle:
+						pos: self.pos
+						size: self.size
+
+			TextInput:
+				id: host_input
+				multiline: False
+				background_color: (115/255, 95/255, 70/255, 1)
+
+
+			Button:
+				text: "Start Attack"
+				font_size: 30
+				background_color: (82/255, 20/255, 49/255, 1)
+				on_release: root.Attack(host_input.text)
+
+			GridLayout:
+				cols: 3
+				Label:
+					text: "Enter the name"
+					font_size: 32
+					background_color: (12/255, 112/255, 84/255, 1)
+					canvas.before:
+						Color:
+							rgba: self.background_color
+						Rectangle:
+							pos: self.pos
+							size: self.size
+
+				TextInput:
+					id: remove_text
+					miltiline: False
+					background_color: (115/255, 95/255, 70/255, 1)
+
+
+				Button:
+					text : "Remove"
+					background_color: (1, 0, 0, 1)
+					on_release: root.remove(remove_text.text)
+					font_size: 30
+			GridLayout:
+				cols:2
+				Button:
+					text: "Show List"
+					background_color: (82/255, 20/255, 49/255, 1)
+					on_release: root.show()
+					font_size: 23
+				Button:
+					text: "Clear List"
+					background_color: (1, 0, 0, 1)
+					on_release: root.clear()
+					font_size: 23
+
+			Button:
+				text: "Exit"
+				font_size: 30
+				background_color: (1, 0, 0, 1)
+				on_press: root.exit()
+			Splitter:
+				sizable_from: "top"
+				TextInput:
+					id: status
+					text : "Status : Nothing"
+					font_size: 29
+					multiline: True
+					size_hint: (1, 1)
+					
+
+
+	#subdomains
+	TabbedPanelItem:
+		text: "Subdomains"
+		background_color: (0,0,1,1)
+		BoxLayout:
+			orientation: "vertical"
+			size : root.width, root.height
+			Image:
+				source: "images/anonymous1.jpg"
+				allow_stretch: True
+				keep_ratio: False
+			BoxLayout:
+				Label:
+					text:"Area Under Construction\nApp Contructed by Ruler King this app is\nunder construction"
+					background_color: (1,0,0,1)
+					font_size:32
+					canvas.before:
+						Color:
+							rgba: self.background_color
+						Rectangle:
+							pos: self.pos
+							size:self.size
+					color:(0,0,1,1)
+					bold: True
+					italic: True
+
+
